@@ -19,14 +19,16 @@ export default class ContactForm extends Component {
   };
   render() {
     const { name, number } = this.state;
+    let nameId = nanoid();
+    let numberId = nanoid();
 
     return (
       <form onSubmit={this.handleSubmit} number={number} name={name}>
-        <label className={css.formLabel} htmlFor={nanoid()}>
+        <label className={css.formLabel} htmlFor={nameId}>
           Name
           <input
             className={css.formInput}
-            id={nanoid()}
+            id={nameId}
             type="text"
             name="name"
             value={name}
@@ -36,11 +38,11 @@ export default class ContactForm extends Component {
             onChange={this.handleNameChange}
           />
         </label>
-        <label className={css.formLabel} htmlFor={nanoid()}>
+        <label className={css.formLabel} htmlFor={numberId}>
           Number
           <input
             className={css.formInput}
-            id={nanoid()}
+            id={numberId}
             type="tel"
             name="number"
             value={number}
